@@ -1,0 +1,47 @@
+private int CalculateMaterialQuantity(int productTypeId, int materialTypeId,
+            int requiredQuantity, int warehouseQuantity, double parameter1, double parameter2)
+        {
+            try
+            {
+                // проверка существования типов продукции и материалов
+                var productType = db.Product_types.FirstOrDefault(pt => pt.ID == productTypeId);
+                var materialType = db.Material_type.FirstOrDefault(mt => mt.ID == materialTypeId);
+
+                if (productType == null || materialType == null)
+                    return -1;
+
+                // проверка наличия коэффициентов
+                if (!productType.product_type_coefficient.HasValue || !materialType.defective_material_percent.HasValue)
+                    return -1;
+
+                // валидация входных параметров
+                if (requiredQuantity <= 0 || warehouseQuantity < 0 || parameter1 <= 0 || parameter2 <= 0)
+                    return -1;
+
+                double productCoefficient = productType.product_type_coefficient.Value;
+                double defectPercentage = materialType.defective_material_percent.Value;
+
+                // расчет необходимого количества продукции (минус то, что уже на складе)
+                int productionQuantity = Math.Max(0, requiredQuantity - warehouseQuantity);
+
+                // если вся продукция уже на складе, материал не нужен
+                if (productionQuantity == 0)
+                    return 0;
+
+                // расчет материала на одну единицу продукции
+                double materialPerUnit = parameter1 * parameter2 * productCoefficient;
+
+                // учет брака материала (увеличиваем количество материала)
+                double materialWithDefect = materialPerUnit * (1 + defectPercentage / 100.0);
+
+                // общее количество материала для всего производства
+                double totalMaterial = materialWithDefect * productionQuantity;
+
+                // округление в большую сторону до целого числа
+                return (int)Math.Ceiling(totalMaterial);
+            }
+            catch
+            {
+                return -1;
+            }
+        }
