@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="76009210f1884c8fa42cb0dfd626f941" Name="Diagram1">
+        <EntityTypeShape EntityType="New_TechnologiesModel.Material_type" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TechnologiesModel.Material" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TechnologiesModel.Partner" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TechnologiesModel.Partners_types" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TechnologiesModel.Product_types" Width="1.5" PointX="2.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TechnologiesModel.Products_import" Width="1.5" PointX="5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TechnologiesModel.Units_of_measurement" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="New_TechnologiesModel.FK_Materials_Material_type" ManuallyRouted="false" />
+        <AssociationConnector Association="New_TechnologiesModel.FK_Materials_Units_of_measurement" ManuallyRouted="false" />
+        <AssociationConnector Association="New_TechnologiesModel.FK_Partners_Partners_types" ManuallyRouted="false" />
+        <AssociationConnector Association="New_TechnologiesModel.FK_Products_import_Product_types" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="New_TechnologiesModel.Partner_products_request" Width="1.5" PointX="12.625" PointY="3" />
+        <EntityTypeShape EntityType="New_TechnologiesModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.75" />
+        <AssociationConnector Association="New_TechnologiesModel.FK_Partner_products_request_Partners" />
+        <AssociationConnector Association="New_TechnologiesModel.FK_Partner_products_request_Products_import" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

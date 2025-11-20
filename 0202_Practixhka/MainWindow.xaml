@@ -1,0 +1,37 @@
+﻿<Window x:Class="_0202_Practixhka.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_0202_Practixhka"
+        mc:Ignorable="d"
+        Title="Главная - Система работы с заявками партнеров" Height="400" Width="500" 
+        Icon="/Новые технологии.ico" WindowStartupLocation="CenterScreen">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="20">
+            <Image Source="/Новые технологии.ico" Width="32" Height="32" Margin="0,0,15,0"/>
+            <TextBlock Text="Система работы с заявками партнеров" FontSize="18" FontWeight="Bold" Foreground="#FF546F94"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Content="Перейти к заявкам партнеров" Name="ShowPartnersRequests" Click="ShowPartnerRequests_Click" 
+                    Width="300" Height="60" FontSize="16" Margin="0,10" 
+                    Background="#FF536E93" Foreground="White" FontWeight="Bold"/>
+            <Button x:Name="ShowProductsList" Click="ShowProductsList_Click" Content="Перейти к списку продукции" 
+                Width="300" Height="60" FontSize="16" Margin="0,10" 
+                Background="#FF536E93" Foreground="White" FontWeight="Bold" />
+            <Button x:Name="Calculate"  Click="Calculate_Click" Content="Перейти к рассчету сырья" 
+                Width="300" Height="60" FontSize="16" Margin="0,10" 
+                Background="#FF536E93" Foreground="White" FontWeight="Bold" />
+        </StackPanel>
+
+        
+    </Grid>
+</Window>
